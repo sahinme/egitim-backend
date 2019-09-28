@@ -1,4 +1,4 @@
-using Egitim_Backend.Entities.Concrete;
+using Egitim_Backend.Entities.Concrete.Categories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Egitim_Backend.Data.Concrete.EntityFramework
@@ -7,10 +7,8 @@ namespace Egitim_Backend.Data.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"DESKTOP-5LD89I3\SQLEXPRESS;Database=Egitim;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=Egitim;Integrated Security=True");
         }
-
-        public DbSet<Product> Products { get; set; }
 
         public DbSet<Category> Categories { get; set; }
     }

@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using Egitim_Backend.Core.Entities;
 
 namespace Egitim_Backend.Entities.Concrete
 {
-    public class Product:IEntity
+    public class Course:BaseEntity
     {
-        public int Id { get; set; }
-
-        public int CategoryId { get; set; }
+       
     }
 }
