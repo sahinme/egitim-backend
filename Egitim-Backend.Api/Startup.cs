@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Egitim_Backend.Core.DataAccess;
+using Egitim_Backend.Core.DataAccess.EntityFramework;
+using Egitim_Backend.Data.Abstract;
+using Egitim_Backend.Data.Concrete.EntityFramework;
+using Egitim_Backend.Entities.Concrete;
+using Egitim_Backend_Service.Abstract;
+using Egitim_Backend_Service.Concrete;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +33,10 @@ namespace Egitim_Backend.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

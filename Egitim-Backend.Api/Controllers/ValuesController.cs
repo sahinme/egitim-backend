@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Egitim_Backend.Entities.Concrete;
+using Egitim_Backend_Service.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Egitim_Backend.Api.Controllers
@@ -10,11 +12,19 @@ namespace Egitim_Backend.Api.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly IProductService _productService;
+
+
+        public ValuesController(IProductService productService)
+        {
+            _productService = productService;
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<List<Product>> Get()
         {
-            return new string[] {"value1", "value2"};
+            return _productService.GetAll();
         }
 
         // GET api/values/5

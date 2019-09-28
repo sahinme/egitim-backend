@@ -17,7 +17,15 @@ namespace Egitim_Backend_Service.Concrete
         
         public List<Product> GetAll()
         {
-            return _productRepository.GetList();
+            var product = new Product
+            {
+                Id = 1,
+                CategoryId = 2
+            };
+            var numbers = new List<Product>();
+             numbers.Add(product);
+             return numbers;
+             //return _productRepository.GetList();
         }
 
         public List<Product> GetByCategory(int categoryId)
@@ -37,7 +45,7 @@ namespace Egitim_Backend_Service.Concrete
 
         public void Delete(int productId)
         {
-            _productRepository.Delete(productId);
+            //_productRepository.Delete(productId);
         }
     }
 }
