@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>Egitim_Backend_Service</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Egitim-Backend.Data\Egitim-Backend.Data.csproj" />
+    <ProjectReference Include="..\Egitim-Backend.Entities\Egitim-Backend.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
