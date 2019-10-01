@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
-using Egitim_Backend.Core.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Egitim_Backend.Entities.Concrete.Base;
 
-namespace Egitim_Backend.Entities.Concrete
+namespace Egitim_Backend.Entities.Concrete.Categories
 {
     public class Category:BaseEntity
     {
@@ -12,7 +9,7 @@ namespace Egitim_Backend.Entities.Concrete
 
         public string Description { get; set; }
         
-        public int? ParentCategoryId { get; set; }
+        public long? ParentCategoryId { get; set; }
         
         
         [ForeignKey(nameof(ParentCategoryId))]

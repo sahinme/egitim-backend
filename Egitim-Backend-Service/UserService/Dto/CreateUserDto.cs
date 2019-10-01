@@ -1,14 +1,15 @@
-using Egitim_Backend.Entities.Concrete.Base;
+using System.ComponentModel.DataAnnotations;
+using Egitim_Backend.Entities.Concrete.Users;
 
-namespace Egitim_Backend.Entities.Concrete.Users
+namespace Egitim_Backend_Service.UserService.Dto
 {
-    public class User:BaseEntity
-    {
+    public class CreateUserDto
+    { 
         public string Name { get; set; }
         
         public string Surname { get; set; }
         
-        public char Gender { get; set; }
+        public byte Gender { get; set; }
         
         public int Age { get; set; }
         

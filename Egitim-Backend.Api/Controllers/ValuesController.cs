@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Egitim_Backend.Entities.Concrete;
-using Egitim_Backend_Service.Abstract;
+﻿using System.Collections.Generic;
+using Egitim_Backend.Entities.Concrete.Categories;
+using Egitim_Backend_Service.CategoryService;
+using Egitim_Backend_Service.UserService;
+using Egitim_Backend_Service.UserService.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Egitim_Backend.Api.Controllers
@@ -12,19 +11,18 @@ namespace Egitim_Backend.Api.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private readonly IProductService _productService;
-
-
-        public ValuesController(IProductService productService)
+        private readonly ICategoryAppService _categoryAppService;
+        private readonly IUserAppService _userAppService;
+        public ValuesController(ICategoryAppService categoryAppService,IUserAppService userAppService)
         {
-            _productService = productService;
+            _categoryAppService = categoryAppService;
+            _userAppService = userAppService;
         }
-
         // GET api/values
         [HttpGet]
-        public ActionResult<List<Product>> Get()
+        public ActionResult<List<Category>> Get()
         {
-            return _productService.GetAll();
+            return _categoryAppService.GetAll();
         }
 
         // GET api/values/5
@@ -36,8 +34,9 @@ namespace Egitim_Backend.Api.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(CreateUserDto model)
         {
+            _userAppService.Add(model);
         }
 
         // PUT api/values/5

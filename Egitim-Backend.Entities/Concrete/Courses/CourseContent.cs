@@ -1,4 +1,6 @@
-namespace Egitim_Backend.Entities.Concrete
+using Egitim_Backend.Entities.Concrete.Base;
+
+namespace Egitim_Backend.Entities.Concrete.Courses
 {
     public class CourseContent:BaseEntity
     {

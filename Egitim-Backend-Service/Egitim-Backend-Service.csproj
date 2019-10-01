@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Egitim-Backend.Entities\Egitim-Backend.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+  </ItemGroup>
+
 </Project>

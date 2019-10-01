@@ -1,4 +1,4 @@
-namespace Egitim_Backend.Entities.Concrete
+namespace Egitim_Backend.Entities.Concrete.Courses
 {
     public enum ContentType
     {

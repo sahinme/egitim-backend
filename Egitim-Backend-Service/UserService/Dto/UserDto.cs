@@ -1,18 +1,18 @@
-using Egitim_Backend.Entities.Concrete.Base;
+using System;
+using Egitim_Backend_Service.Dto;
 
-namespace Egitim_Backend.Entities.Concrete.Users
+namespace Egitim_Backend_Service.UserService.Dto
 {
-    public class User:BaseEntity
+    public class UserDto:EntityDto<long>
     {
         public string Name { get; set; }
         
         public string Surname { get; set; }
         
-        public char Gender { get; set; }
+        public byte Gender { get; set; }
         
         public int Age { get; set; }
         
-        //meslek
         public string Profession { get; set; }
 
         public string Username { get; set; }
@@ -22,5 +22,8 @@ namespace Egitim_Backend.Entities.Concrete.Users
         public string EmailAddress { get; set; }
 
         public string PhoneNumber { get; set; }
+        
+        public DateTime CreatedDate { get; set; }
+
     }
 }
