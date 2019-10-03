@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Egitim_Backend.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,49 +9,50 @@ namespace Egitim_Backend.Core.DataAccess.EntityFramework
         where TEntity:class,IEntity,new()
         where TContext:DbContext,new()
     {
-        public TEntity Get(Expression<Func<TEntity, bool>> filter)
+
+        public IQueryable<TEntity> GetAll()
         {
             using (var context=new TContext())
             {
-                return context.Set<TEntity>().SingleOrDefault(filter);
+                return context.Set<TEntity>();
+            }
+        }
+        public IQueryable<TEntity> Get(long id)
+        {
+            using (var context = new TContext())
+            {
+                return (IQueryable<TEntity>)context.Set<TEntity>().Find(id);
+
             }
         }
 
-        public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
+        public async Task AddAsync(TEntity entity)
         {
             using (var context=new TContext())
             {
-                return filter == null ? context.Set<TEntity>().ToList() : context.Set<TEntity>().Where(filter).ToList();
+                var addedEntity=  context.Entry(entity);
+                addedEntity.State = EntityState.Added; 
+                await context.SaveChangesAsync();
             }
         }
 
-        public void Add(TEntity entity)
-        {
-            using (var context=new TContext())
-            {
-                var addedEntity= context.Entry(entity);
-                addedEntity.State = EntityState.Added;
-                context.SaveChanges();
-            }
-        }
-
-        public void Update(TEntity entity)
+        public async Task Update(TEntity entity)
         {
             using (var context=new TContext())
             {
                 var updatedEntity= context.Entry(entity);
                 updatedEntity.State = EntityState.Modified;
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
 
-        public void Delete(TEntity entity)
+        public async Task Delete(TEntity entity)
         {
             using (var context=new TContext())
             {
                 var deletedEntity= context.Entry(entity);
                 deletedEntity.State = EntityState.Deleted;
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
     }

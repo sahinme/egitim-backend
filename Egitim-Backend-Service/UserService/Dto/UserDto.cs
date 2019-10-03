@@ -22,8 +22,5 @@ namespace Egitim_Backend_Service.UserService.Dto
         public string EmailAddress { get; set; }
 
         public string PhoneNumber { get; set; }
-        
-        public DateTime CreatedDate { get; set; }
-
     }
 }

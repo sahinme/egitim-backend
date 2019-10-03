@@ -1,20 +1,21 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Egitim_Backend.Core.Entities;
 
 namespace Egitim_Backend.Core.DataAccess
 {
     public interface IRepository<T> where T:class,IEntity,new()
     {
-        T Get(Expression<Func<T,bool>> filter=null);
+        IQueryable<T> GetAll();
+        IQueryable<T> Get(long id);
 
-        List<T> GetList(Expression<Func<T, bool>> filter = null);
+        Task AddAsync(T entity);
 
-        void Add(T entity);
+        Task Update(T entity);
 
-        void Update(T entity);
-
-        void Delete(T entity);
+        Task Delete(T entity);
     }
 }

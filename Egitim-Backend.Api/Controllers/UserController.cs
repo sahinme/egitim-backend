@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Egitim_Backend.Data.Abstract;
 using Egitim_Backend.Entities.Concrete.Categories;
+using Egitim_Backend.Entities.Concrete.Users;
 using Egitim_Backend_Service.CategoryService;
+using Egitim_Backend_Service.Dto;
 using Egitim_Backend_Service.UserService;
 using Egitim_Backend_Service.UserService.Dto;
 using Microsoft.AspNetCore.Mvc;
@@ -9,27 +13,25 @@ namespace Egitim_Backend.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class UserController : ControllerBase
     {
-        private readonly ICategoryAppService _categoryAppService;
         private readonly IUserAppService _userAppService;
-        public ValuesController(ICategoryAppService categoryAppService,IUserAppService userAppService)
+        public UserController(IUserAppService userAppService)
         {
-            _categoryAppService = categoryAppService;
             _userAppService = userAppService;
         }
         // GET api/values
-        [HttpGet]
-        public ActionResult<List<Category>> Get()
-        {
-            return _categoryAppService.GetAll();
-        }
+//        [HttpGet]
+//        public ActionResult<List<User>> GetAll()
+//        {
+//            return "va"
+//        }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public Task<UserDto> Get(long id)
         {
-            return "value";
+            return _userAppService.GetById(id);
         }
 
         // POST api/values

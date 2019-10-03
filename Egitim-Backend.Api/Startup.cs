@@ -6,6 +6,7 @@ using Egitim_Backend_Service.UserService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
@@ -30,11 +31,11 @@ namespace Egitim_Backend.Api
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddScoped<ICategoryAppService, CategoryAppService>();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<ICategoryAppService, CategoryAppService>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
 
-            services.AddScoped<IUserAppService, UserAppService>();
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddTransient<IUserAppService, UserAppService>();
+            services.AddTransient<IUserRepository, UserRepository>();
             services.AddAutoMapper(typeof(Startup));
             
             services.AddTransient<IMapper, Mapper>();
