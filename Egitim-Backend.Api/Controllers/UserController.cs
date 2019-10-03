@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using Egitim_Backend.Data.Abstract;
-using Egitim_Backend.Entities.Concrete.Categories;
-using Egitim_Backend.Entities.Concrete.Users;
-using Egitim_Backend_Service.CategoryService;
-using Egitim_Backend_Service.Dto;
 using Egitim_Backend_Service.UserService;
 using Egitim_Backend_Service.UserService.Dto;
 using Microsoft.AspNetCore.Mvc;
@@ -16,29 +13,32 @@ namespace Egitim_Backend.Api.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserAppService _userAppService;
+
         public UserController(IUserAppService userAppService)
         {
             _userAppService = userAppService;
         }
         // GET api/values
-//        [HttpGet]
-//        public ActionResult<List<User>> GetAll()
-//        {
-//            return "va"
-//        }
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> Get()
+        {
+            return new string[] {"value1", "value2"};
+        }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public Task<UserDto> Get(long id)
+        public ActionResult Get(long id)
         {
-            return _userAppService.GetById(id);
+            var ent =  _userAppService.GetById(id);
+            return Ok(ent);
         }
 
+        
         // POST api/values
         [HttpPost]
-        public void Post(CreateUserDto model)
+        public void Post([FromBody] CreateUserDto input)
         {
-            _userAppService.Add(model);
+            _userAppService.Add(input);
         }
 
         // PUT api/values/5

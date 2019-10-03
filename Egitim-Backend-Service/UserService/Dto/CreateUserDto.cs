@@ -1,3 +1,5 @@
+using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Egitim_Backend.Entities.Concrete.Users;
 
@@ -9,7 +11,7 @@ namespace Egitim_Backend_Service.UserService.Dto
         
         public string Surname { get; set; }
         
-        public byte Gender { get; set; }
+        public char Gender { get; set; }
         
         public int Age { get; set; }
         
@@ -23,5 +25,6 @@ namespace Egitim_Backend_Service.UserService.Dto
         public string EmailAddress { get; set; }
 
         public string PhoneNumber { get; set; }
+        
     }
 }

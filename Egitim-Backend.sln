@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egitim-Backend.Data", "Egit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egitim-Backend-Service", "Egitim-Backend-Service\Egitim-Backend-Service.csproj", "{1B4C9D0D-FE9F-448A-8A9A-A510706A8195}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egitim-Backend.Api", "Egitim-Backend.Api\Egitim-Backend.Api.csproj", "{4167A29E-12C5-4FF4-9414-6F2686C7EB43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egitim-Backend.Api", "Egitim-Backend.Api\Egitim-Backend.Api.csproj", "{91DF51A7-E5FA-40F3-B887-624BC52C2384}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{1B4C9D0D-FE9F-448A-8A9A-A510706A8195}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B4C9D0D-FE9F-448A-8A9A-A510706A8195}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B4C9D0D-FE9F-448A-8A9A-A510706A8195}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4167A29E-12C5-4FF4-9414-6F2686C7EB43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4167A29E-12C5-4FF4-9414-6F2686C7EB43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4167A29E-12C5-4FF4-9414-6F2686C7EB43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4167A29E-12C5-4FF4-9414-6F2686C7EB43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91DF51A7-E5FA-40F3-B887-624BC52C2384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91DF51A7-E5FA-40F3-B887-624BC52C2384}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91DF51A7-E5FA-40F3-B887-624BC52C2384}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91DF51A7-E5FA-40F3-B887-624BC52C2384}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -26,15 +26,20 @@ namespace Egitim_Backend_Service.UserService
         
         public async Task Add(CreateUserDto input)
         {
-            var user = _mapper.Map<User>(input); 
+            var user = new User
+            {
+                Name = input.Name,
+                Surname = input.Surname,
+                EmailAddress = input.EmailAddress,
+                Password = input.Password,
+                Profession = input.Profession,
+                Gender = input.Gender,
+                Username = input.Username,
+                Age = input.Age,
+                PhoneNumber = input.PhoneNumber
+            };
             await _userRepository.AddAsync(user);
-//            var user = new User
-//            {
-//                Name = input.Name,
-//                EmailAddress = input.EmailAddress,
-//                Password = input.Password
-//            };
-//            _userRepository.Add(user);
+
         }
 
         public async Task<UserDto> GetById(long id)
