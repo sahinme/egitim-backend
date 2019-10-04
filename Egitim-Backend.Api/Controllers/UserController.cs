@@ -32,6 +32,13 @@ namespace Egitim_Backend.Api.Controllers
             var ent =  _userAppService.GetById(id);
             return Ok(ent);
         }
+        
+        
+//        [HttpGet]
+//        public ActionResult<IEnumerable<string>> GetUserByName()
+//        {
+//            return new string[] {"value1", "value2"};
+//        }
 
         
         // POST api/values
